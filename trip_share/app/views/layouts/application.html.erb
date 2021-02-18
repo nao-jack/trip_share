@@ -9,6 +9,27 @@
   </head>
 
   <body>
+    <header>
+    <div class="site-header">
+    <div class="contents-width">
+        <div class="site-title link"><%= link_to("Trip Share", "/") %></div>
+    <div class="header-right-nav link">
+      <input name="area" placeholder="エリア">
+      <input name="keyword" placeholder="キーワード">
+      <%= link_to("ログイン","/login")%>
+      <%= link_to("新規登録","/sign_up")%>
+    </div>
+  </div>
+  </div>
+</header>
+ <% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
     <%= yield %>
+    <fotter class="site-fotter">
+      <p >Trip-Share</p>
+    </fotter>
   </body>
 </html>
