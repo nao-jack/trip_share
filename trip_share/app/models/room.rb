@@ -8,7 +8,9 @@ class Room < ApplicationRecord
    end
    
    def self.search(adress,search)
-      if  search
+      if adress
+        @rooms = Room.where(["adress LIKE ?", "%#{adress}%"])
+      elsif search
         @rooms = Room.where(["adress LIKE ? OR room_name LIKE ? OR name LIKE ?","%#{search}%","%#{search}%","%#{search}%"])
       else
         @rooms = Room.all
