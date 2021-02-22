@@ -14,17 +14,32 @@
     <div class="contents-width">
         <div class="site-title link"><%= link_to("Trip Share", "/") %></div>
     <div class="header-right-nav link">
-      <input name="area" placeholder="エリア">
-      <input name="keyword" placeholder="キーワード">
+      <%= form_tag("/search",:method => "get") do %>
+      
+      <%= text_field_tag :search,"",placeholder:"キーワード",class:"home-form"%>
+      <%= submit_tag "探す",class:"button"%>
+    　<%end%>
+      <% if session[:user_id] %>
+      <%= link_to("ルーム登録","/rooms/new")%>
+      <%= link_to("予約一覧","/") %>
+      <div class="header-account">
+      <%= link_to image_tag("/users_img/#{@current_user.user_image}"),"/users/#{@current_user.id}" %>
+      <div class="header-name">
+      <%= link_to(@current_user.name, "/users/#{@current_user.id}")%>
+      </div>
+      </div>
+      <% else %>
       <%= link_to("ログイン","/login")%>
       <%= link_to("新規登録","/sign_up")%>
+      <% end %>
+     
     </div>
   </div>
   </div>
 </header>
  <% if flash[:notice] %>
-  <div class="flash">
-    <%= flash[:notice] %>
+  <div class="flash-box">
+    <p class="flash contents-width"><%= flash[:notice] %></p>
   </div>
   <% end %>
     <%= yield %>

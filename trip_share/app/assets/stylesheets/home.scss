@@ -2,32 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
- *{
-    margin:0;
-    padding:0;
-    text-decoration:none;
-    list-style:none;
-}
-.contents-width{
-    max-width: 1300px;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-}
-
 
 // --トップメイン--
-body {
-  position: relative;
-}
-.site-contents{
-    min-height: 100vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
-    position: relative;/* ←相対位置 */
-    padding-bottom: 150px; /* ←フッターの高さを指定 */
-    box-sizing: border-box;
-}
 .background{
     background-image:url("/site_img/top_img.jpg");
     background-size:cover;
@@ -49,7 +25,7 @@ span{
     height:30px;
     width:300px;
 }
-.buttom{
+.button{
     height:30px;
     padding:0 20px 0 20px;
     margin-left:20px;
@@ -64,6 +40,8 @@ span{
     display:inline-block;
     height:400px;
     margin:50px;
+     border:solid 1px;
+    box-shadow: 0px 1px 3px 0px;
 }
 .area-content p{
     text-align:center;

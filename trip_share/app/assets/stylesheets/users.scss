@@ -38,11 +38,23 @@ a{
     color:black;
     margin-top:20px;
 }
+.form-error{
+    font-size:20px;
+}
 
 // アカウント画面
+.account-show-container{
+   text-align:center;
+   margin: 100px 50px;
+   padding-bottom:50px;
+   height:auto ;
+   width:30%;
+   border:solid 1px;
+   box-shadow: 0px 1px 3px 0px;
+}
 .account-container{
    text-align:center;
-   margin: 150px 50px;
+   margin: 100px 50px;
    padding-bottom:50px;
    height:auto ;
    width:50%;
@@ -59,13 +71,29 @@ a{
 .account-info table td{
     padding:20px 30px;
     font-size:20px;
+    width:60%;
 }
 .account-info table th{
     font-size:20px;
     text-align:start;
+    width:30%;
 }
 .edit-btn{
     margin-top:30px;
     height:30px;
     width:100px;
+}
+.account-info input{
+    width:300px;
+}
+.account-image img{
+    width:30%;
+    height:auto;
+    object-fit: cover;
+    border:solid 1px;
+    box-shadow: 0px 1px 3px 0px;
+    border-radius:50%;
+}
+.account-text{
+    margin-left:50px;
 }

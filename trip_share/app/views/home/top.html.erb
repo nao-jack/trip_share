@@ -3,8 +3,10 @@
         <div class="form-box contents-width">
             <h3 class="form-text"><span>Trip Share </span>でまだ体験したことのない旅をしよう</h3>
             <div class="forms">
-            <input class="form" name="area" placeholder="エリア">
-            <input class="buttom" type="submit" value="探す">
+             <%= form_tag("/search",:method => "get") do %>            
+             <%= text_field_tag :adress,"",placeholder:"エリア",class:"form"%>
+             <%= submit_tag "探す",class:"button"%>
+            <%end%>
             </div>
         </div>
     </div>
