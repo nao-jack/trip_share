@@ -1,6 +1,5 @@
 class RoomsController < ApplicationController
-  
-  
+
   def new
     @room = Room.new
   end
@@ -30,6 +29,7 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find_by(id: params[:id])
     @user = @room.user
+    @reservation = Reservation.new
   end
   
   def edit

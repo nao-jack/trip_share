@@ -8,4 +8,7 @@ class User < ApplicationRecord
       return Room.where(user_id: self.id)
     end
     
+    def reservations
+      return Reservation.where(user_id: self.id)
+    end
 end

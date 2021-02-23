@@ -9,7 +9,7 @@
             <input class="room-form" name="price" placeholder="一泊あたりの金額" value="<%= @room.price %>">
             <input class="room-form" type="file" name="room_image" value="<%= @room.room_image %>">
             <input class="room-btn" type="submit" value="登録">
-            <%= link_to "掲載中の部屋一覧","/rooms" %>
+            <%= link_to "掲載中の部屋一覧","/users/#{@current_user.id}" %>
         </div>
         <%end%>
     </div>

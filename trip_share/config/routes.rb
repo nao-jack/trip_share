@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  get "reservations" => "reservations#index"
+  get "reservations/new" => "reservations#new"
+  post "reservations/create" => "reservations#create"
+  get "reservations/:id" => "reservations#show"
+  post "reservations/:id/destroy" => "reservations#destroy"
+
   get "login" => "users#login_form"
   post "login" => "users#login"
   post "logout" => "users#logout"

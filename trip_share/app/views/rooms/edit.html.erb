@@ -10,7 +10,7 @@
             <input class="room-form" type="file" name="room_image">
             <input class="room-btn" type="submit" value="変更">
             <%= link_to "ルームを削除する","/rooms/#{@room.id}/destroy",method: :post%>
-            <%= link_to "掲載中の部屋一覧","/rooms" %>
+            <%= link_to "掲載中の部屋一覧","/users/#{@current_user.id}" %>
         </div>
         <% end %>
     </div>

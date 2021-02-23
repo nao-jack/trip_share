@@ -1,0 +1,12 @@
+<div class="site-contents">
+    <% @reservations.each do |reservation| %>
+    <%= link_to image_tag("/rooms_img/#{@room.room_image}"),"/rooms/#{@room.id}" %>
+    <p class="room-name"><%= @room.room_name %></p>
+    <p class="room-introduction"><%= @room.introduction %></p>
+    <p><%= @reservation.start_date %></p>
+    <p><%= @reservation.end_date %></p>
+    <p><%= @reservation.group %></p>
+    <p><%= @reservation.total_price %></p>
+    <p><%= @room.id %> </p>
+    <%end%>
+</div>
