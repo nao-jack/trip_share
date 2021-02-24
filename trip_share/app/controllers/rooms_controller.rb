@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
 
+ before_action :set_current_room,{only:[:show]}
+ 
   def new
     @room = Room.new
   end
@@ -28,6 +30,9 @@ class RoomsController < ApplicationController
   
   def show
     @room = Room.find_by(id: params[:id])
+    if @room
+    session[:room_id] = @room.id
+    end
     @user = @room.user
     @reservation = Reservation.new
   end
@@ -59,7 +64,7 @@ class RoomsController < ApplicationController
     @room = Room.find_by(id: params[:id])
     if @room.destroy
       flash[:notice] = "ルームを削除しました"
-       redirect_to("/rooms")
+       redirect_to("/rooms/search")
     end
   end
   

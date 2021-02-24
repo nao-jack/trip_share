@@ -34,7 +34,9 @@
     </div>
     </div>
      <div class="room-link">
-            <%= link_to "ルーム情報を変更する","/rooms/#{@room.id}/edit" %>
-            <%= link_to "掲載中の部屋一覧","/rooms" %>
+      <% if @current_user.id == @current_room.user_id %>
+            <%= link_to "ルーム情報を変更する","/rooms/#{@current_room.id}/edit" %>
+       <%end%>
+       <%= link_to "掲載中の部屋一覧","/users/#{@current_user.id}" %>
         </div>
     </div>

@@ -20,7 +20,7 @@
     　<%end%>
       <% if session[:user_id] %>
       <%= link_to("ルーム登録","/rooms/new")%>
-      <%= link_to("予約一覧","reservations") %>
+      <%= link_to("予約一覧","/reservations") %>
       <div class="header-account">
       <%= link_to image_tag("/users_img/#{@current_user.user_image}"),"/users/#{@current_user.id}" %>
       <div class="header-name">

@@ -3,13 +3,15 @@ class Room < ApplicationRecord
     validates :adress,{presence: true}
     validates :price,{presence: true}
     validates :user_id,{presence: true}
+    validates :introduction,{length: {maximum: 100}}
+    
     
    def user
       return User.find_by(id: self.user_id)
    end
    
-    def reservation
-      return Room.find_by(id: self.room_id)
+    def reservations
+      return Reservation.where(room_id: self.id)
     end
 
    

@@ -35,7 +35,7 @@
   <% @user.rooms.each do |room| %>
       <div class="room-container">
           <div class="room-img">
-            <%= link_to image_tag("/rooms_img/#{room.room_image}"),"/rooms/#{room.id}/edit" %>
+            <%= link_to image_tag("/rooms_img/#{room.room_image}"),"/rooms/#{room.id}" %>
           </div>
           <div class="room-box">
              <p class="room-name"><%= room.room_name %></p>

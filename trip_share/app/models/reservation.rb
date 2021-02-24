@@ -6,11 +6,11 @@ class Reservation < ApplicationRecord
     validates :total_price,{presence: true}
     validates :group,{presence: true}
     
-    def users
+    def user
       return User.find_by(id: self.user_id)
     end
     
-    def rooms
+    def room
         return Room.find_by(id: self.room_id)
     end
    

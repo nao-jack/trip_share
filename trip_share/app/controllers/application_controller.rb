@@ -21,5 +21,8 @@ class ApplicationController < ActionController::Base
       end
   end
   
+  def set_current_room
+  @current_room = Room.find_by(id: session[:room_id])
+  end
   
 end

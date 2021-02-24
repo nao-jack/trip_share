@@ -1,7 +1,7 @@
 <div class="site-contents">
     <div class="room-new-container contents-width">
         <h3 class="room-text">ルーム新規登録</h3>
-        <%= form_tag("/rooms/create",{multipart:true}) do %>
+        <%= form_tag("rooms/createC",{multipart:true}) do %>
         <div class="room-forms">
             <input class="room-form" name="room_name" placeholder="ルームの名前" value="<%= @room.room_name %>">
             <input class="room-form" name="adress" placeholder="住所" value="<%= @room.adress %>">

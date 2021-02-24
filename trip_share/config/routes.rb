@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get "reservations" => "reservations#index"
+  get "/reservations" => "reservations#index"
   get "reservations/new" => "reservations#new"
   post "reservations/create" => "reservations#create"
   get "reservations/:id" => "reservations#show"

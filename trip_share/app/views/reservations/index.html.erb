@@ -1,12 +1,40 @@
-<div class="site-contents">
-    <% @reservations.each do |reservation| %>
-    <%= link_to image_tag("/rooms_img/#{@room.room_image}"),"/rooms/#{@room.id}" %>
-    <p class="room-name"><%= @room.room_name %></p>
-    <p class="room-introduction"><%= @room.introduction %></p>
-    <p><%= @reservation.start_date %></p>
-    <p><%= @reservation.end_date %></p>
-    <p><%= @reservation.group %></p>
-    <p><%= @reservation.total_price %></p>
-    <p><%= @room.id %> </p>
-    <%end%>
-</div>
+  <div class="site-contents contents-width">
+    <h3 class="room-text">予約ルーム一覧</h3>
+          <% @reservations.each do |reservation| %>
+           <% @rooms.each do |room| %>
+         <div class="reservation-container">
+          <div class="reservation-img">
+            <img src="<%= "/rooms_img/#{ room.room_image}" %>">
+             <p class="reservation-text reservation-name"><%= room.room_name %></p>
+          </div>
+         
+           <div class="reservations">
+           <table>
+             <tr class="reservation-text">
+               <th>開始日</th>
+               <td><%= reservation.start_date %></td>
+             </tr>
+             <tr class="reservation-text">
+               <th>終了日</th>
+               <td><%= reservation.end_date %></td>
+             </tr></td>
+             </tr>
+             <tr class="reservation-text">
+             <th>人数</th>
+             <td><%= reservation.group %></td>
+             </tr>
+             <tr class="reservation-text">
+             <th>合計金額</th>
+             <td><%= reservation.total_price %></td>
+             </tr>
+              <tr class="reservation-text">
+             <th>予約日</th>
+             <td><%= reservation.created_at %></td>
+            
+             </tr>
+            </table>
+            </div>
+            </div>
+            <% end %>
+            <%end%>
+     </div>
