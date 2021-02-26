@@ -4,14 +4,11 @@ class Reservation < ApplicationRecord
     validates :user_id,{presence: true}
     validates :room_id,{presence: true}
     validates :total_price,{presence: true}
-    validates :group,{presence: true}
+    validates :group,{presence: true,
+                      numericality: true}
+    validates :room_name,{presence: true}
+    validates :room_image,{presence: true}
     
-    def user
-      return User.find_by(id: self.user_id)
-    end
-    
-    def room
-        return Room.find_by(id: self.room_id)
-    end
-   
+    belongs_to :user
+    belongs_to :room
 end

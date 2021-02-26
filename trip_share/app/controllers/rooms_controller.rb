@@ -1,7 +1,8 @@
 class RoomsController < ApplicationController
 
  before_action :set_current_room,{only:[:show]}
- 
+ before_action:authenticate_user,{only:[:edit,:update,:new,:create,:desstroy]}
+  
   def new
     @room = Room.new
   end
@@ -22,8 +23,9 @@ class RoomsController < ApplicationController
        end
       if @room.save
         flash[:notice] = "ルームを登録しました"
-        redirect_to("/rooms")
+        redirect_to("/rooms/#{@room.id}")
       else
+         flash[:notice] = @room.errors.full_messages.join("\n")
         render("rooms/new")
       end
   end
@@ -56,6 +58,7 @@ class RoomsController < ApplicationController
      flash[:notice] = "ルーム情報を更新しました"
      redirect_to("/rooms/#{@room.id}")
    else
+    flash[:notice] = @room.errors.full_messages.join("\n")
      render("rooms/edit")
    end
   end
@@ -71,5 +74,7 @@ class RoomsController < ApplicationController
   def search
     @rooms = Room.search(params[:adress],params[:search])
   end
+  
+
   
 end

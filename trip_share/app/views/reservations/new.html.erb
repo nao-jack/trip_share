@@ -23,11 +23,13 @@
             <input class="room-form" type="date" name="end_date"value="<%= @reservation.end_date %>">
             <p class="show-text">人数</p>
             <input class="room-form" type="number" name="group" value="<%= @reservation.group %>">
-            <p class="show-text">合計金額  一泊あたり¥<%=@reservation.n1_price%></p>
+            <p class="show-text">合計金額  一泊一人あたり¥<%=@reservation.n1_price%></p>
+            <input class="room-form" type="hidden" name="n1_price" value="<%= @reservation.n1_price %>">
             <input class="room-form" name="total_price" value="<%= @reservation.n1_price * @reservation.group * ( @reservation.end_date - @reservation.start_date).to_i %>"readonly>
             <input class="room-btn" type="submit" value="予約を確定">
-           </div>
            <%end%>
+           </div>
+          
     </div>
     </div>
      <div class="room-link">

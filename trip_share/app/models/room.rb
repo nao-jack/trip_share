@@ -5,10 +5,8 @@ class Room < ApplicationRecord
     validates :user_id,{presence: true}
     validates :introduction,{length: {maximum: 100}}
     
-    
-   def user
-      return User.find_by(id: self.user_id)
-   end
+  belongs_to :user
+  has_many :reservations,dependent: :destroy
    
     def reservations
       return Reservation.where(room_id: self.id)
@@ -25,4 +23,5 @@ class Room < ApplicationRecord
       end
    end
 
+   
 end

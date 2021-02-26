@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   before_action:authenticate_user,{only:[:edit,:show,:update]}
   before_action:forbid_login_user,{only:[:new,:create,:login_form,:login]}
-  before_action :ensure_correct_user, {only: [:edit, :update]}
+  before_action :ensure_correct_user, {only: [:edit, :update,:show,:destroy]}
   
   
   def new
@@ -14,9 +14,15 @@ class UsersController < ApplicationController
     name: params[:name],
     email: params[:email],
     password: params[:password],
+    repassword: params[:repassword],
     self_introduction: params[:self_introduction],
     user_image: "default_user_img.png"
     )
+    unless @user.password == @user.repassword
+    flash[:notice] = "入力されたパスワードが一致しません"
+    render ("users/new")
+    return
+    end
       if params[:user_image]
        @user.user_image = "#{@user.id}.jpg"
        user_image = params[:user_image]
@@ -27,6 +33,7 @@ class UsersController < ApplicationController
       flash[:notice] = "登録完了しました"
       redirect_to("/users/#{@user.id}")
     else
+      flash[:notice] = @user.errors.full_messages.join("\n")
       render("users/new")
     end
   end
@@ -54,6 +61,7 @@ class UsersController < ApplicationController
       flash[:notice] = "変更しました"
       redirect_to("/users/#{@user.id}")
      else
+        flash[:notice] = @user.errors.full_messages.join("\n")
       render("users/edit")
      end
   end
@@ -62,8 +70,8 @@ class UsersController < ApplicationController
   end
   
   def login
-    @user = User.find_by(email: params[:email],password: params[:password])
-    if @user
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました" 
       redirect_to("/")

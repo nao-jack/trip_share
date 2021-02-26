@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-// index
+// index,show
 .reservation-container{
     display:flex;
     flex-wrap:wrap;
@@ -21,6 +21,8 @@
 }
 .reservations{
     padding:30px;
+    display:flex;
+    margin-left:50px;
 }
 .reservation-text{
       color:#666;
@@ -28,6 +30,10 @@
 }
 .reservation-text th{
     color:black;
+    padding: 2px 15px;
+}
+.table{
+    font-size:20px;
 }
 .reservation-name{
     color:black;
@@ -35,4 +41,20 @@
 }
 .reservation-introduction{
     font-size:18px;
+}
+.reservation-edit {
+     text-align:center;
+}
+.reservation-link{
+    margin:auto 0 auto 50px;
+}
+.reservation-link p{
+    margin-top:10px;
+}
+.reservation-box table{
+  
+   margin-top:30px;
+}
+.reservation-box{
+    width:50%;
 }

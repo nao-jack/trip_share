@@ -41,6 +41,11 @@
     <p class="flash contents-width"><%= flash[:notice] %></p>
   </div>
   <% end %>
+  <% if flash[:alert] %>
+  <div class="flash-box">
+    <p class="flash contents-width"><%= flash[:alert] %></p>
+  </div>
+  <% end %>
     <%= yield %>
     <fotter class="site-fotter">
       <p >Trip-Share</p>
